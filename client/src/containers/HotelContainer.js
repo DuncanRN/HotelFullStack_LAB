@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import BookingsList from '../components/BookingsList';
-import BookingForm from '../components/BookingForm'
+import BookingForm from '../components/BookingForm';
 
 const HotelContainer  = () => {
     const [bookings, setBookings] = useState([]);
@@ -25,13 +25,25 @@ const HotelContainer  = () => {
     }
 
 
-    // const removeBooking = (id) => {
-    //     const temp = bookings.map(booking => booking);;
-    //     const indexToDel = temp.map(booking => booking._id).indexOf(id);
-    //     // console.log(indexToDel);
+    const removeBooking = (id) => {
+        const temp = bookings.map(booking => booking);;
+        const indexToDel = temp.map(booking => booking._id).indexOf(id);
+        // console.log(indexToDel);
 
-    //     temp.splice(indexToDel, 1);
-    //     setBookings(temp);
+        temp.splice(indexToDel, 1);
+        setBookings(temp);
+    }
+
+    // const deleteBooking = (id) => {
+    //     return fetch('http://localhost:9000/api/bookings/' + id, {
+    //         method: 'DELETE'
+    //     })
+    // }
+
+    // const handleDeleteClick = (booking) => {
+    //     deleteBooking(booking._id).then(()=>{
+    //         removeBooking(booking._id);
+    //     })
     // }
 
 
@@ -43,7 +55,7 @@ const HotelContainer  = () => {
                 onFormSubmit={handleBookingSubmit}
             />
 
-            <BookingsList bookings={bookings}  />
+            <BookingsList bookings={bookings} removeBooking={removeBooking} />
 
             {/* removeBooking={removeBooking} */}
         

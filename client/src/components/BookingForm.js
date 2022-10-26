@@ -38,10 +38,10 @@ const BookingForm = ( { handleChange, onFormSubmit } ) => {
     return (
         <form onSubmit={handleFormSubmit}>
             <label htmlFor="name">Name:</label>
-            <input type="text" name="name" value={name} onChange={handleNameChange} />
+            <input type="text" name="name" value={name} onChange={handleNameChange} required/>
 
             <label htmlFor="email">Email:</label>
-            <input type="text" name="email" value={email} onChange={handleEmailChange} />
+            <input type="text" name="email" value={email} onChange={handleEmailChange} required/>
 
             <label htmlFor="checkedIn">Checked In?: </label>
             <select name="checkedIn" value={checkedIn} onChange={handleCheckedInChange}>
